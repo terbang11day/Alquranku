@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Surat Al-Quran</title>
+</head>
+<body>
+    <h1>Detail Surat Al-Quran</h1>
+
+
+    {% for surat in semua_surat %}
+        <li>
+        <h2>Surat {{ surat.nama }}</h2>
+        <p>Nomor: {{ surat.nomer }}</p>
+        <p>Nama Latin: {{ surat.nama_latin }}</p>
+        <p>Jumlah Ayat: {{ surat.jumlah_ayat }}</p>
+        <p>Tempat Turun: {{ surat.tempat_turun }}</p>
+        <p>Arti: {{ surat.arti }}</p>
+        <p>Deskripsi: {{ surat.deskripsi }}
+        </li>
+    {% endfor %}
+
+    <h2>Audio</h2>
+    <ul>
+        {% for audio in semua_audio %}
+            <li>
+                Ayat {{ audio.surat}}:
+                <p>Arab: {{ audio.link }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h2>Ayat</h2>
+    <ul>
+        {% for ayat_info in semua_ayat %}
+            <li>
+                Ayat {{ ayat_info.nomer_ayat }}:
+                <p>Arab: {{ ayat_info.teks_arab }}</p>
+                <p>Latin: {{ ayat_info.teks_latin }}</p>
+                <p>Indonesia: {{ ayat_info.teks_indo }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
